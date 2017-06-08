@@ -1,0 +1,15 @@
+#!/bin/bash
+
+################################################################################
+##  NICV(Netword Interface Card Viewer) is alternative of ifconfig.           ##
+##  It has simple view and show only active network interfaces.               ##
+################################################################################
+
+for ETH in $(ifconfig -l); do
+    status=$(ifconfig "$ETH" | grep status | awk '{print $2}')
+    if [ "$status" = "active" ]; then
+        printf "\n%10s \033[0;31m => \033[m %-20s\n" "interface" "$ETH"
+        ifconfig -v "$ETH" | grep -E "inet|type|status" | sed 's/://' | awk '{printf "%10s \033[0;92m => \033[m %-20s\n", $1, $2}'
+    fi
+done
+
