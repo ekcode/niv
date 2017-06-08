@@ -1,11 +1,11 @@
-# NICV(Netword Interface Card Viewer)
-NICV is alternative of ifconfig.
+# NIV(Network Interface Viewer)
+NIV is alternative of ifconfig.
 
 It has simple view and show only active network interfaces.
 
 # Example
 ```
-#> nicv
+#> niv
  interface  =>  en0
      inet6  =>  fe80:1401:d5f:a365:a2d2%en0
       inet  =>  192.168.0.10
